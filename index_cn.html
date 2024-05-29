@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    
+	<!-- Use mobile-aware viewport -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="styles/my-theme.css">
+	<link rel='shortcut icon' type='image/x-icon' href='myfavicon.ico' />
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/bootstrap.js"></script>
+
+	<title> MDOD: Multi-Dimensional data Outlier Detection, 多维数据异常值检测 </title>
+	</head>
+<body>    
+	<div class="clearfix px-4 pt-1 pb-0 mb-3 bg-dark topbar topbar-dark">
+  	<div class="float-left">
+    	<h1 class="text-nowrap" style="display:inline">
+      		<a href="index.html"> MDOD: Multi-Dimensional data Outlier Detection, 多维数据异常值检测 </a>(<a class="" href="https://mddod.github.io/index.html">english</a>)
+    	</h1>
+  	</div>
+	</div>
+	<br>
+Python library for Multi-Dimensional data Outlier/Anomaly Detection algorithm. , 多维数据异常值检测Python library。
+    	<div class="container-fluid px-4">
+      		<h3>MDOD paper</h3>
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">MDOD paper is published in ICAIIC 2024 as title "Outlier Detect using Vector Cosine Similarity by Adding a Dimension" </span> (<a class="" href="https://doi.org/10.1109/ICAIIC60209.2024.10463442">paper</a>)			</li>
+		</ul></span>
+	</div> <br>
+		
+    	<div class="container-fluid px-4">
+      		<h3>Installation:安装方法：</h3>
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">
+pip install mdod
+<br><br>
+or或者
+<br><br>
+git clone https://github.com/mddod/mdod.git
+<br>
+cd mdod
+<br>
+python setup.py install
+<br>
+
+			</span> 
+		</li>
+		</ul></span>
+	</div> <br>
+
+
+    	<div class="container-fluid px-4">
+      		<h3>usage example:使用示例：</h3>(<a class="" href="https://mddod.github.io/testmdod.py">testmdod.py</a>)
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">
+import numpy as np
+<br>			
+import mdod
+<br>
+localFile = 'TestDataset.txt'
+<br>
+dets= np.loadtxt(localFile,delimiter=',')
+<br>
+nd = 1
+<br>
+sn = 15
+<br>
+result = mdod.md(dets,nd,sn)
+<br>
+print (result)
+<br>
+			</span> 
+		</li>
+		</ul></span>
+	</div> <br>
+
+  
+    	<div class="container-fluid px-4">
+      		<h3>TestDataset.txt format:测试数据文件示例：</h3>(<a class="" href="https://mddod.github.io/TestDataset.txt">TestDataset.txt</a>)
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">
+data1,data2,data3,data4,data5,data6
+<br>
+data1,data2,data3,data4,data5,data6
+<br>
+data1,data2,data3,data4,data5,data6
+<br>
+...
+<br>
+			</span> 
+		</li>
+		</ul></span>
+	</div> <br>
+		
+    	<div class="container-fluid px-4">
+      		<h3>dets format:</h3>
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">
+[[data1 data2 data3 data4 data5 data6]
+<br>
+[data1 data2 data3 data4 data5 data6]
+<br>
+[data1 data2 data3 data4 data5 data6]
+<br>
+...]
+<br>
+			</span> 
+		</li>
+		</ul></span>
+	</div> <br>
+		
+
+    	<div class="container-fluid px-4">
+      		<h3>result format:输出结果示例：</h3>
+		<span class="list"><ul>
+		<li class="tight" id="p:ccs21">
+			<span class="">
+[value1, '[data1 data2 data3 data4 data5 data6]', '0']
+<br>
+[value2, '[data1 data2 data3 data4 data5 data6]', '1']
+<br>
+[value3, '[data1 data2 data3 data4 data5 data6]', '2']
+<br>
+...
+<br>
+			</span> 
+		</li>
+		</ul></span>
+	</div> <br>
+		    
+    
+<footer class="pt-5">
+  <div class="small text-muted border-top px-4 py-2">
+    © 2024
+    Last updated May 22, 2024.<br>
+  </div>
+</footer>
+
+  </body>
+</html>
