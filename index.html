@@ -15,6 +15,41 @@
     <script src="scripts/bootstrap.js"></script>
 
     <title>MDOD: Multi-Dimensional Data Outlier Detection</title>
+    <script>
+        // Function to log browser info and visit time
+        function logBrowserInfo() {
+            // Get browser information from the navigator object
+            const userAgent = navigator.userAgent;
+            const platform = navigator.platform;
+            const browserLanguage = navigator.language;
+
+            // Get the current time
+            const visitTime = new Date().toLocaleString();
+
+            // Create a log message
+            const logMessage = `Visit Time: ${visitTime}\nBrowser Info: ${userAgent}\nPlatform: ${platform}\nLanguage: ${browserLanguage}\n`;
+
+            // Output to the console (for testing)
+            console.log(logMessage);
+
+            // Store the log in localStorage (optional)
+            localStorage.setItem('visitLog', logMessage);
+
+            // Optionally, you could send the log to a server using AJAX (example below)
+            // sendLogToServer(logMessage);
+        }
+
+        // Example of sending the log to a server (replace with your server-side script)
+        function sendLogToServer(logMessage) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/log', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({ log: logMessage }));
+        }
+
+        // Call the log function on page load
+        window.onload = logBrowserInfo;
+    </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
