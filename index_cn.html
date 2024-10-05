@@ -1,154 +1,209 @@
 <!doctype html>
 <html lang="en">
-	<head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-	<!-- Use mobile-aware viewport -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="styles/my-theme.css">
-	<link rel='shortcut icon' type='image/x-icon' href='myfavicon.ico' />
-	<script src="scripts/jquery.js"></script>
-	<script src="scripts/bootstrap.js"></script>
-
-	<title> MDOD: Multi-Dimensional data Outlier Detection, 多维数据异常值检测 </title>
-	</head>
-<body>    
-	<div class="clearfix px-4 pt-1 pb-0 mb-3 bg-dark topbar topbar-dark">
-  	<div class="float-left">
-    	<h1 class="text-nowrap" style="display:inline">
-      		<a href="index.html"> MDOD: Multi-Dimensional data Outlier Detection, 多维数据异常值检测 </a>
-    	</h1>
-		<h3>(<a class="" href="https://mddod.github.io/index.html">  English</a>)</h3>
-  	</div>
-	</div>
-	<br>
-Python library for Multi-Dimensional data Outlier/Anomaly Detection algorithm, 多维数据异常值检测Python库。
-    	<div class="container-fluid px-4">
-      		<h3>MDOD paper</h3>
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">MDOD paper is published in ICAIIC 2024 as title "Outlier Detect using Vector Cosine Similarity by Adding a Dimension" </span> (<a class="" href="https://doi.org/10.1109/ICAIIC60209.2024.10463442">paper</a>)			</li>
-		</ul></span>
-	</div> <br>
-		
-    	<div class="container-fluid px-4">
-      		<h3>安装方法：</h3>
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">
-pip install mdod
-<br><br>
-或者
-<br><br>
-git clone https://github.com/mddod/mdod.git
-<br>
-cd mdod
-<br>
-python setup.py install
-<br>
-
-			</span> 
-		</li>
-		</ul></span>
-	</div> <br>
-
-
-    	<div class="container-fluid px-4">
-      		<h3>使用示例（读取TestDataset.txt数据）：</h3>(<a class="" href="https://mddod.github.io/testmdod.py">testmdod.py</a>)
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">
-import numpy as np
-<br>			
-import mdod
-<br>
-localFile = 'TestDataset.txt'
-<br>
-dets= np.loadtxt(localFile,delimiter=',')
-<br>
-nd = 1
-<br>
-sn = 15
-<br>
-result = mdod.md(dets,nd,sn)
-<br>
-print (result)
-<br>
-			</span> 
-		</li>
-		</ul></span>
-	</div> <br>
-
-  
-    	<div class="container-fluid px-4">
-      		<h3>测试数据文件示例：</h3>(<a class="" href="https://mddod.github.io/TestDataset.txt">TestDataset.txt</a>)
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">
-data1,data2,data3,data4,data5,data6
-<br>
-data1,data2,data3,data4,data5,data6
-<br>
-data1,data2,data3,data4,data5,data6
-<br>
-...
-<br>
-			</span> 
-		</li>
-		</ul></span>
-	</div> <br>
-		
-    	<div class="container-fluid px-4">
-      		<h3>dets过程数据示例：</h3>
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">
-[[data1 data2 data3 data4 data5 data6]
-<br>
-[data1 data2 data3 data4 data5 data6]
-<br>
-[data1 data2 data3 data4 data5 data6]
-<br>
-...]
-<br>
-			</span> 
-		</li>
-		</ul></span>
-	</div> <br>
-		
-
-    	<div class="container-fluid px-4">
-      		<h3>输出结果示例：</h3>
-		<span class="list"><ul>
-		<li class="tight" id="p:ccs21">
-			<span class="">
-[value1, '[data1 data2 data3 data4 data5 data6]', '0']
-<br>
-[value2, '[data1 data2 data3 data4 data5 data6]', '1']
-<br>
-[value3, '[data1 data2 data3 data4 data5 data6]', '2']
-<br>
-...
-<br>
-			</span> 
-		</li>
-		</ul></span>
-	</div> <br>
-
-<br><br>
-	      	<h3>使用示例（2D随机数据集）:</h3>(<a class="" href="https://mddod.github.io/testmdod2D.py">testmdod2D.py</a>)
-      		<h3>使用示例（3D随机数据集）:</h3>(<a class="" href="https://mddod.github.io/testmdod3D.py">testmdod3D.py</a>)
-<br><br>
-<h3>更多：</h3><br>
-继续访问 <a class="" href="https://github.com/mddod/mdod">github</a>, <a class="" href="https://pypi.org/project/mdod/">pypi</a>
-<br>	<br><br>
+    <!-- Google Fonts for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
-<footer class="pt-5">
-  <div class="small text-muted border-top px-4 py-2">
-    © 2024
-    Last updated September 22, 2024.<br>
-  </div>
-</footer>
+    <!-- Custom CSS for professional look -->
+    <link rel="stylesheet" href="styles/my-theme.css">
+    <link rel='shortcut icon' type='image/x-icon' href='myfavicon.ico' />
 
-  </body>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+
+    <title>MDOD: Multi-Dimensional Data Outlier Detection</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .topbar {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+        }
+        .topbar h1, .topbar a {
+            color: white;
+            font-weight: 700;
+        }
+        .container-fluid {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: #f1f1f1;
+            padding: 2rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-left: 4px solid #007bff;
+            background-color: #f8f9fa;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top bar -->
+    <div class="topbar" style="background-color: #007bff; color: white;">
+        <div class="container-fluid">
+            <h1><a href="index.html" style="color: #007bff;">MDOD: 多维数据异常值检测</a></h1>
+            <a href="https://mddod.github.io/index.html" style="color: #007bff;">English</a>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <p>这是一个多维数据异常值检测python库。</p>
+    </div>
+
+    <!-- Paper Section -->
+    <div class="container-fluid">
+        <h3>MDOD Paper</h3>
+        <div class="list">
+            <ul>
+                <li>MDOD算法发表在ICAIIC 2024: "Outlier Detect using Vector Cosine Similarity by Adding a Dimension" 
+                    (<a href="https://doi.org/10.1109/ICAIIC60209.2024.10463442">论文</a>)
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Installation Section -->
+    <div class="container-fluid">
+        <h3>安装</h3>
+        <div class="list">
+            <ul>
+                <li>
+                    <code>pip install mdod</code><br><br>
+                    or<br><br>
+                    <code>git clone https://github.com/mddod/mdod.git</code><br>
+                    <code>cd mdod</code><br>
+                    <code>python setup.py install</code><br>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Example Section -->
+    <div class="container-fluid">
+        <h3>使用举例 (数据读取于TestDataset.txt):</h3>
+        <div class="list">
+            <ul>
+                <li>
+                        <code>import numpy as np</code><br>            
+                        <code>import mdod</code><br>
+                        <code>localFile = 'TestDataset.txt'</code><br>
+                        <code>dets= np.loadtxt(localFile,delimiter=',')</code><br>
+                        <code># nd: 观察点在新增维度上的值</code><br>
+                        <code>nd = 1</code><br>
+                        <code># sn: 统计的数量（计算值从大到小排序）</code><br>
+                        <code>sn = 15</code><br>
+                        <code>result = mdod.md(dets,nd,sn)</code><br>
+                        <code>print(result)</code><br><br>
+                    (<a href="https://mddod.github.io/testmdod.py">下载testmdod.py</a>)
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TestDataset.txt Format -->
+    <div class="container-fluid">
+        <h3>测试数据格式</h3>
+        <div class="list">
+            <ul>
+                <li>
+                    <code>data1,data2,data3,data4,data5,data6</code><br>
+                    <code>data1,data2,data3,data4,data5,data6</code><br>
+                    <code>data1,data2,data3,data4,data5,data6</code><br>
+                    <code>...</code><br><br>
+                    (<a href="https://mddod.github.io/TestDataset.txt">下载TestDataset.txt</a>)
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- dets Format -->
+    <div class="container-fluid">
+        <h3>dets过程数据示例</h3>
+        <div class="list">
+            <ul>
+                <li>
+                    <code>[[data1 data2 data3 data4 data5 data6]</code><br>
+                    <code>[data1 data2 data3 data4 data5 data6]</code><br>
+                    <code>[data1 data2 data3 data4 data5 data6]</code><br>
+                    <code>...]]</code><br><br>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Result Format -->
+    <div class="container-fluid">
+        <h3>输出结果格式示例</h3>
+        <div class="list">
+            <ul>
+                <li>
+                    <code>[value1, '[data1 data2 data3 data4 data5 data6]', '0']</code><br>
+                    <code>[value2, '[data1 data2 data3 data4 data5 data6]', '1']</code><br>
+                    <code>[value3, '[data1 data2 data3 data4 data5 data6]', '2']</code><br>
+                    <code>...</code><br>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Additional Usage Examples -->
+    <div class="container-fluid">
+        <h3>随机2维数据集使用示例</h3>
+        <p><a href="https://mddod.github.io/testmdod2D.py">下载testmdod2D.py</a></p>
+
+        <h3>随机3维数据集使用示例</h3>
+        <p><a href="https://mddod.github.io/testmdod3D.py">下载testmdod3D.py</a></p>
+    </div>
+
+    <!-- More Details -->
+    <div class="container-fluid">
+        <h3>更多</h3>
+        <p>访问<a href="https://github.com/mddod/mdod">GitHub</a> 或<a href="https://pypi.org/project/mdod/">PyPI</a> 获取更多信息</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 最近更新 October 5, 2024
+    </footer>
+
+</body>
 </html>
