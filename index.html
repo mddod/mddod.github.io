@@ -1,211 +1,260 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Google Fonts for professional typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS for professional look -->
-    <link rel="stylesheet" href="styles/my-theme.css">
-    <link rel='shortcut icon' type='image/x-icon' href='myfavicon.ico' />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MDOD: A Python library for Multi-Dimensional Data Outlier Detection using machine learning algorithms.">
+    <meta name="keywords" content="outlier detection, multi-dimensional data, machine learning, Python, MDOD">
+    <meta name="author" content="MDOD Team">
 
-    <script src="scripts/jquery.js"></script>
-    <script src="scripts/bootstrap.js"></script>
+    <!-- Google Fonts for professional and academic typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/my-theme.css">
+    <link rel="shortcut icon" type="image/x-icon" href="myfavicon.ico">
+
+    <!-- Scripts -->
+    <script defer src="scripts/jquery.js"></script>
+    <script defer src="scripts/bootstrap.js"></script>
 
     <title>MDOD: Multi-Dimensional Data Outlier Detection</title>
+
     <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-color: #212529;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
             margin: 0;
             padding: 0;
         }
+
         a {
-            color: #007bff;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         a:hover {
+            color: #003d82;
             text-decoration: underline;
         }
-        .topbar {
-            background-color: #007bff;
+
+        header {
+            background-color: var(--primary-color);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
+            box-shadow: var(--shadow);
         }
-        .topbar h1, .topbar a {
-            color: white;
+
+        header h1 {
+            margin: 0;
+            font-size: 1.75rem;
             font-weight: 700;
         }
-        .container-fluid {
-            margin-top: 2rem;
-            padding: 2rem;
+
+        header nav {
+            margin-top: 0.5rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h3 {
-            color: #007bff;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        footer {
-            background-color: #f1f1f1;
             padding: 2rem;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
         }
-        .list ul {
-            list-style-type: none;
-            padding-left: 0;
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
-        .list li {
-            margin-bottom: 1rem;
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
             padding: 1rem;
-            border-left: 4px solid #007bff;
-            background-color: #f8f9fa;
+            margin-bottom: 1rem;
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--primary-color);
         }
+
         code {
             background-color: #e9ecef;
-            padding: 0.2rem 0.4rem;
+            padding: 0.25rem 0.5rem;
             border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre code {
+            display: block;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        footer {
+            background-color: #e9ecef;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
     </style>
+
+    <script>
+        function logAccessInfo() {
+            const logMessage = {
+                time: new Date().toLocaleString(),
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language
+            };
+            sendLogToServer(logMessage);
+        }
+
+        function sendLogToServer(logMessage) {
+            fetch('logen.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(logMessage)
+            }).catch(error => console.error('Logging failed:', error));
+        }
+
+        window.addEventListener('load', logAccessInfo);
+    </script>
 </head>
+
 <body>
-    <!-- Top bar -->
-    <div class="topbar" style="background-color: #007bff; color: white;">
-        <div class="container-fluid">
-            <h1><a href="index.html" style="color: #007bff;">MDOD: Multi-Dimensional Data Outlier Detection</a></h1>
-            <a href="https://mddod.github.io/index_cn.html" style="color: #007bff;">中文</a>
-        </div>
-    </div>
+    <header>
+        <h1><a href="index.html" style="color: white;">MDOD: Multi-Dimensional Data Outlier Detection</a></h1>
+        <nav>
+            <a href="index_cn.html" style="color: white;">中文</a>
+        </nav>
+    </header>
 
+    <main>
+        <section aria-labelledby="intro">
+            <h2 id="intro" class="visually-hidden">Introduction</h2>
+            <p>A Python library for multi-dimensional data outlier and anomaly detection using advanced machine learning algorithms.</p>
+        </section>
 
-    <div class="container-fluid">
-        <p>Python library for Multi-Dimensional Data Outlier/Anomaly Detection algorithm.</p>
-    </div>
-
-    <!-- Paper Section -->
-    <div class="container-fluid">
-        <h3>MDOD Paper</h3>
-        <div class="list">
+        <section aria-labelledby="paper">
+            <h2 id="paper">Publications</h2>
             <ul>
-                <li>MDOD paper is published in ICAIIC 2024: "Outlier Detect using Vector Cosine Similarity by Adding a Dimension" 
-                    (<a href="https://doi.org/10.1109/ICAIIC60209.2024.10463442">Paper</a>)
-                </li>
+                <li>"Outlier Detection Using Vector Cosine Similarity by Adding a Dimension" – Published in <em>ICAIIC 2024</em> (<a href="https://doi.org/10.1109/ICAIIC60209.2024.10463442">DOI: 10.1109/ICAIIC60209.2024.10463442</a>)</li>
+                <li>I am looking for expert's endorsement to submit an article to the cs.AI section of arXiv. If you would like to endorse me, please visit <em>the URL: </em> (<a href="https://arxiv.org/auth/endorse?x=9QAAWI">https://arxiv.org/auth/endorse?x=9QAAWI</a>)</li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-    <!-- Installation Section -->
-    <div class="container-fluid">
-        <h3>Installation</h3>
-        <div class="list">
+        <section aria-labelledby="installation">
+            <h2 id="installation">Installation</h2>
             <ul>
                 <li>
-                    <code>pip install mdod</code><br><br>
-                    or<br><br>
-                    <code>git clone https://github.com/mddod/mdod.git</code><br>
-                    <code>cd mdod</code><br>
-                    <code>python setup.py install</code><br>
+                    Via pip: <code>pip install mdod</code><br><br>
+                    Or via GitHub:<br>
+                    <pre><code>git clone https://github.com/mddod/mdod.git
+cd mdod
+python setup.py install</code></pre>
                 </li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-    <!-- Example Section -->
-    <div class="container-fluid">
-        <h3>Usage Example (get data from TestDataset.txt):</h3>
-        <div class="list">
+        <section aria-labelledby="usage">
+            <h2 id="usage">Usage Example</h2>
             <ul>
                 <li>
-                        <code>import numpy as np</code><br>            
-                        <code>import mdod</code><br>
-                        <code>localFile = 'TestDataset.txt'</code><br>
-                        <code>dets= np.loadtxt(localFile,delimiter=',')</code><br>
-                        <code># nd: value of the observation point in the new dimension</code><br>
-                        <code>nd = 1</code><br>
-                        <code># sn: number of statistics on the first few numbers in the order of scores from large to small</code><br>
-                        <code>sn = 15</code><br>
-                        <code>result = mdod.md(dets,nd,sn)</code><br>
-                        <code>print(result)</code><br><br>
-                    (<a href="https://mddod.github.io/testmdod.py">Download testmdod.py</a>)
+                    <pre><code>import numpy as np
+import mdod
+
+localFile = 'TestDataset.txt'
+dets = np.loadtxt(localFile, delimiter=',')
+nd = 1  # Value of the observation point in the new dimension
+sn = 15  # Number of statistics on top scores
+result = mdod.md(dets, nd, sn)
+print(result)</code></pre>
+                    <p><a href="testmdod.py">Download testmdod.py</a></p>
                 </li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-    <!-- TestDataset.txt Format -->
-    <div class="container-fluid">
-        <h3>TestDataset.txt Format</h3>
-        <div class="list">
+        <section aria-labelledby="data-format">
+            <h2 id="data-format">Input Data Format (TestDataset.txt)</h2>
             <ul>
                 <li>
-                    <code>data1,data2,data3,data4,data5,data6</code><br>
-                    <code>data1,data2,data3,data4,data5,data6</code><br>
-                    <code>data1,data2,data3,data4,data5,data6</code><br>
-                    <code>...</code><br><br>
-                    (<a href="https://mddod.github.io/TestDataset.txt">Download TestDataset.txt</a>)
+                    <pre><code>data1,data2,data3,data4,data5,data6
+data1,data2,data3,data4,data5,data6
+data1,data2,data3,data4,data5,data6
+...</code></pre>
+                    <p><a href="TestDataset.txt">Download TestDataset.txt</a></p>
                 </li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-        <!-- dets Format -->
-    <div class="container-fluid">
-        <h3>dets format example</h3>
-        <div class="list">
+        <section aria-labelledby="result-format">
+            <h2 id="result-format">Output Result Format</h2>
             <ul>
                 <li>
-                    <code>[[data1 data2 data3 data4 data5 data6]</code><br>
-                    <code>[data1 data2 data3 data4 data5 data6]</code><br>
-                    <code>[data1 data2 data3 data4 data5 data6]</code><br>
-                    <code>...]]</code><br>
+                    <pre><code>[value1, '[data1 data2 data3 data4 data5 data6]', '0']
+[value2, '[data1 data2 data3 data4 data5 data6]', '1']
+[value3, '[data1 data2 data3 data4 data5 data6]', '2']
+...</code></pre>
                 </li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-    <!-- Result Format -->
-    <div class="container-fluid">
-        <h3>Result Format</h3>
-        <div class="list">
+        <section aria-labelledby="examples">
+            <h2 id="examples">Additional Examples</h2>
             <ul>
-                <li>
-                    <code>[value1, '[data1 data2 data3 data4 data5 data6]', '0']</code><br>
-                    <code>[value2, '[data1 data2 data3 data4 data5 data6]', '1']</code><br>
-                    <code>[value3, '[data1 data2 data3 data4 data5 data6]', '2']</code><br>
-                    <code>...</code><br>
+                <li>Random 2D Data: <a href="testmdod2D.py">Download testmdod2D.py</a><br>
+                    <img src="images/Figure_2D.png" alt="2D outlier detection visualization" style="max-width: 100%;">
+                </li>
+                <li>Random 3D Data: <a href="testmdod3D.py">Download testmdod3D.py</a><br>
+                    <img src="images/Figure_3D.png" alt="3D outlier detection visualization" style="max-width: 100%;">
                 </li>
             </ul>
-        </div>
-    </div>
+        </section>
 
-    <!-- Additional Usage Examples -->
-    <div class="container-fluid">
-        <h3>Usage Example for Random 2D Data</h3>
-        <p><a href="https://mddod.github.io/testmdod2D.py">Download testmdod2D.py</a></p>
-        <img src="Figure_2D.png" alt="Example 2D" style="width: auto; height: auto;" />
+        <section aria-labelledby="resources">
+            <h2 id="resources">Resources</h2>
+            <p>For more information, visit <a href="https://github.com/mddod/mdod">GitHub</a> or <a href="https://pypi.org/project/mdod/">PyPI</a>.</p>
+        </section>
+    </main>
 
-        <h3>Usage Example for Random 3D Data</h3>
-        <p><a href="https://mddod.github.io/testmdod3D.py">Download testmdod3D.py</a></p>
-        <img src="Figure_3D.png" alt="Example 3D" style="width: auto; height: auto;" />
-    </div>
-
-    <!-- More Details -->
-    <div class="container-fluid">
-        <h3>More Details</h3>
-        <p>Visit <a href="https://github.com/mddod/mdod">GitHub</a> or <a href="https://pypi.org/project/mdod/">PyPI</a> for more information.</p>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        © 2024 Last updated October 7, 2024.
+        <p>© 2024 MDOD Team. Last updated: October 7, 2024.</p>
     </footer>
-
 </body>
 </html>
