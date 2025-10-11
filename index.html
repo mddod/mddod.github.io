@@ -195,52 +195,19 @@ python setup.py install</code></pre>
             <h2 id="usage">Usage Example</h2>
             <ul>
                 <li>
-                    <pre><code>import numpy as np
-import mdod
-
-localFile = 'TestDataset.txt'
-dets = np.loadtxt(localFile, delimiter=',')
-nd = 1  # Value of the observation point in the new dimension
-sn = 15  # Number of statistics on top scores
-result = mdod.md(dets, nd, sn)
-print(result)</code></pre>
-                    <p><a href="testmdod.py">Download testmdod.py</a></p>
+                    <p><a href="testmdodmodelv3.py">Download testmdodmodelv3.py</a></p>
                 </li>
             </ul>
         </section>
 
-        <section aria-labelledby="data-format">
-            <h2 id="data-format">Input Data Format (TestDataset.txt)</h2>
-            <ul>
-                <li>
-                    <pre><code>data1,data2,data3,data4,data5,data6
-data1,data2,data3,data4,data5,data6
-data1,data2,data3,data4,data5,data6
-...</code></pre>
-                    <p><a href="TestDataset.txt">Download TestDataset.txt</a></p>
-                </li>
-            </ul>
-        </section>
-
-        <section aria-labelledby="result-format">
-            <h2 id="result-format">Output Result Format</h2>
-            <ul>
-                <li>
-                    <pre><code>[value1, '[data1 data2 data3 data4 data5 data6]', '0']
-[value2, '[data1 data2 data3 data4 data5 data6]', '1']
-[value3, '[data1 data2 data3 data4 data5 data6]', '2']
-...</code></pre>
-                </li>
-            </ul>
-        </section>
 
         <section aria-labelledby="examples">
             <h2 id="examples">Additional Examples</h2>
             <ul>
-                <li>Random 2D Data: <a href="testmdod2D.py">Download testmdod2D.py</a><br>
+                <li>Random 2D Data<br>
                     <img src="Figure_2D.png" alt="2D outlier detection visualization" style="max-width: 100%;">
                 </li>
-                <li>Random 3D Data: <a href="testmdod3D.py">Download testmdod3D.py</a><br>
+                <li>Random 3D Data<br>
                     <img src="Figure_3D.png" alt="3D outlier detection visualization" style="max-width: 100%;">
                 </li>
             </ul>
@@ -253,8 +220,9 @@ data1,data2,data3,data4,data5,data6
     </main>
 
     <footer>
-        <p>© 2024 MDOD Team. Last updated: February 24, 2025.</p>
+        <p>© 2024 MDOD Team. Last updated: October 11, 2025.</p>
     </footer>
 </body>
 </html>
+
 
