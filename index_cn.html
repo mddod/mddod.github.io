@@ -125,6 +125,61 @@
                 <li>
                     <a href="https://mddod.github.io/testmdodmodelv3cn.py">下载testmdodmodelv3cn.py</a>
                 </li>
+                <li>
+                    <code>PS D:\mdod> python testmdodmodelv3.py</code><br>
+                    <code>Data generation failed after 1000 attempts. Scaled data to fit within 1.0.</code><br>
+                    <code>Generate data: 1000 Sample, 2 Dimension, 150 Outliers</code><br>
+                    <code>Generated data has been saved to  'generated_data.csv'</code><br>
+                    <code>Use sampling rate: 0.05</code><br>
+                    <br>
+                    <code> MDOD Decision Score (Top 10):</code><br>
+                    <code>[-18.31559252 -19.31589488 -18.95489266 -19.27465188 -19.38318373</code><br>
+                    <code> -19.02271112 -19.5686593  -19.2839105  -18.60204328 -18.33769728]</code><br>
+                    <code>MDOD Predicted Labels (Number of Anomalies): 150</code><br>
+                    <code>MDOD AUC: 1.0</code><br>
+                    <code>MDOD Runtime: 0.002752 seconds</code><br>
+                    <code>MDOD Confusion Matrix:</code><br>
+                    <code>[[850   0]</code><br>
+                    <code> [  0 150]]</code><br>
+                    <code>MDOD Precision: 1.0000</code><br>
+                    <code>MDOD Recall: 1.0000</code><br>
+                    <code>MDOD F1-Score: 1.0000</code><br>
+                    <br>
+                    <code>LOF Decision Score (Top 10):</code><br>
+                    <code>[1.25375406 1.01080138 1.11113192 1.0219336  1.03138014 1.10677047</code><br>
+                    <code> 0.96855755 0.99321085 1.17408394 1.30132643]</code><br>
+                    <code>LOF Predicted Labels (Number of Anomalies): 150</code><br>
+                    <code>LOF AUC: 1.0</code><br>
+                    <code>LOF Running time: 0.011232 seconds</code><br>
+                    <code>LOF Confusion Matrix:</code><br>
+                    <code>[[850   0]</code><br>
+                    <code> [  0 150]]</code><br>
+                    <code>LOF Precision: 1.0000</code><br>
+                    <code>LOF Recall: 1.0000</code><br>
+                    <code>LOF F1-Score: 1.0000</code><br>
+                    <br>
+                    <code>Comparison results:</code><br>
+                    <code>Spearman correlation coefficient: 0.9244 (p-value: 0.0000)</code><br>
+                    <code>MDOD AUC: 1.0000, LOF AUC: 1.0000</code><br>
+                    <code>Algorithm Complexity Comparison (Empirical Running Time)：MDOD 0.002752s vs LOF 0.011232s</code><br>
+                    <br>
+                    <code>Test Data Comparison (Top 10 Rows):</code><br>
+                    <code>   Feature_1  Feature_2  True_Label  MDOD_Score  MDOD_Label  LOF_Score  LOF_Label</code><br>
+                    <code>0   0.236384   0.463173         0.0  -18.315593           0   1.253754          0</code><br>
+                    <code>1  -0.231236   0.046397         0.0  -19.315895           0   1.010801          0</code><br>
+                    <code>2   0.089341   0.378934         0.0  -18.954893           0   1.111132          0</code><br>
+                    <code>3  -0.289616   0.078549         0.0  -19.274652           0   1.021934          0</code><br>
+                    <code>4   0.252438  -0.010620         0.0  -19.383184           0   1.031380          0</code><br>
+                    <code>5   0.374958   0.164868         0.0  -19.022711           0   1.106770          0</code><br>
+                    <code>6   0.037580   0.167901         0.0  -19.568659           0   0.968558          0</code><br>
+                    <code>7  -0.230299  -0.145481         0.0  -19.283910           0   0.993211          0</code><br>
+                    <code>8   0.003694   0.429171         0.0  -18.602043           0   1.174084          0</code><br>
+                    <code>9  -0.449619  -0.343795         0.0  -18.337697           0   1.301326          0</code><br>
+                    <code>The complete data has been saved to 'test_data_comparison.csv'</code><br>
+                    <code>Test output data has been saved to 'test_output_data.csv'</code><br>
+                    <code>libpng warning: iCCP: cHRM chunk does not match sRGB</code><br>
+                    <code>libpng warning: iCCP: cHRM chunk does not match sRGB</code><br>
+                </li>
             </ul>
         </div>
     </div>
