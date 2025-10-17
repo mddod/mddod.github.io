@@ -278,6 +278,16 @@ python setup.py install</code></pre>
                     <code>[-19.84866083 -19.82038598 -19.82010554 -19.80062169 -19.80051546</code><br>
                     <code>-19.76201034 -19.76181435 -19.75729718 -19.75229983 -19.74520579]</code><br><br>
                 </li>
+
+                <li>
+                    <br>                    
+                    The initialization parameters of MDOD include: <br> 
+                    norm_distence: The distance of the virtual dimension (the default is 1.0, which affects the similarity calculation).<br> 
+                    top_n: Consider the number of nearest points used for statistics (select the appropriate number for outlier identification and distinction).<br> 
+                    Contamination: The set abnormal ratio (the default is 0.1, which is used for threshold calculation).<br> 
+                    sampling_rate: sampling rate (0~1, default 1.0, low value accelerates calculation).<br> 
+                    random_state: random seed.<br> <br> 
+                </li>
                 
             </ul>
         </section>
@@ -306,6 +316,7 @@ python setup.py install</code></pre>
     </footer>
 </body>
 </html>
+
 
 
 
